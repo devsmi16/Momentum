@@ -1,8 +1,8 @@
-//
-//  ListViewVM.swift
-//  Momentum
-//
-//  Created by Sami Gündoğan on 8.02.2025.
-//
-
 import Foundation
+/// view model for list items view
+/// primary lab
+
+class ListViewVM: ObservableObject {
+    @Published var showingNewItemView = false
+    init () {}
+}

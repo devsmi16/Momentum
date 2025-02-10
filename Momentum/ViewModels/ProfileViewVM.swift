@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+class ProfileViewVM: ObservableObject {
+    init () {}
+}
