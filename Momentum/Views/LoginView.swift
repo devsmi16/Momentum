@@ -13,7 +13,15 @@ struct LoginView: View {
                     .frame(height: 250)
                     .padding(.bottom, 20)
                 
+                                
                 Form {
+                    
+                    if !viewModel.errorMessage.isEmpty{
+                        Text(viewModel.errorMessage)
+                            .foregroundColor(.red)
+                    }
+
+                    
                     TextField("Email Address", text: $viewModel.email)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .autocapitalization(.none) // büyük harf kullanımını kapatır
@@ -21,8 +29,12 @@ struct LoginView: View {
                     SecureField("Password", text: $viewModel.password)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
 
-                    TLButton(title: "Log In", backgroundColor: .blue, action: {
-                        // Login action
+                    TLButton(title: "Log In",
+                             backgroundColor: .blue,
+                             action: {
+                        
+                        viewModel.login()
+                        
                     })
                     .padding(.top, 10)
                 }

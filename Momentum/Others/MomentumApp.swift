@@ -1,4 +1,5 @@
 import SwiftUI
+import FirebaseCore
 
 @main
 struct MomentumApp: App {
@@ -7,4 +8,9 @@ struct MomentumApp: App {
             MainView()
         }
     }
+    
+    init() {
+        FirebaseApp.configure()
+    }
+    
 }
