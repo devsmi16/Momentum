@@ -9,4 +9,8 @@ import Foundation
 
 class ProfileViewVM: ObservableObject {
     init () {}
+    
+    func toggleIsDone(item: ListItem) {
+        
+    }
 }
