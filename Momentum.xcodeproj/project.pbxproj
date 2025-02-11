@@ -15,6 +15,7 @@
 
 /* Begin PBXFileReference section */
 		7DA0A6FE2D576BFE00BDFDAE /* Momentum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Momentum.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DE37E3F2D5B78740068BAF3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -60,6 +61,7 @@
 		7DFFEDA72D5A95B6002CDB4D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7DE37E3F2D5B78740068BAF3 /* AVFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

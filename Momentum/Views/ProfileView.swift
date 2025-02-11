@@ -12,7 +12,7 @@ struct ProfileView: View {
                     profile(user: user)
                     
                 }else{
-                    Text("Loading profile...")
+                    
                 }
             }
             .navigationTitle("Profile")

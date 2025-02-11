@@ -23,15 +23,15 @@ struct ListView: View {
                             }
                             .tint(.red)
                         }
-                        .padding(.vertical, 5) // Spacing between list items
+                        .padding(.vertical, 5)
                 }
-                .listStyle(InsetGroupedListStyle()) // More modern list style
+                .listStyle(InsetGroupedListStyle())
                 
                 Spacer()
             }
             .navigationTitle("To Do List")
             .navigationBarTitleDisplayMode(.inline)
-            .font(.system(size: 20, weight: .medium)) 
+            .font(.system(size: 20, weight: .medium))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
@@ -39,7 +39,7 @@ struct ListView: View {
                     }) {
                         Image(systemName: "plus.circle.fill")
                             .font(.title)
-                            .foregroundColor(.green) // More inviting button color
+                            .foregroundColor(.green) 
                     }
                 }
             }

@@ -24,11 +24,17 @@ struct MainView: View {
                 .tabItem {
                     Label("Ana Sayfa", systemImage: "house.fill")
                 }
+            
+            PomodoroView()
+                .tabItem {
+                    Label("Pomodoro", systemImage: "clock.fill")
+                }
 
             ProfileView()
                 .tabItem {
                     Label("Profil", systemImage: "person.crop.circle.fill")
                 }
+            
         }
         .tint(.blue) 
     }
