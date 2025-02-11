@@ -15,12 +15,14 @@ struct NewItemView: View {
             
             Spacer(minLength: 20)
             
-            // Main form for title and due date
+            
             Form {
                 Section {
-                    // Title input
+                    
                     TextField("Title", text: $viewModel.title)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .autocapitalization(.none) // Harf büyüklüğü düzeltmesi yapılmasın
+                        .disableAutocorrection(true)
                         .padding(.vertical, 5)
                 }
                 
