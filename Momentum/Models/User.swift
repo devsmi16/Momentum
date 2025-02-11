@@ -1,6 +1,11 @@
+
+//  Momentum
+//
+//  Created by Sami Gündoğan on 11.02.2025.
+
 import Foundation
 
-struct Users: Codable {
+struct User: Codable {
     
     let id: String
     let name: String
@@ -8,3 +13,4 @@ struct Users: Codable {
     let joined: TimeInterval
     
 }
+

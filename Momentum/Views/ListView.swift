@@ -2,39 +2,51 @@ import SwiftUI
 import FirebaseFirestore
 
 struct ListView: View {
-    @StateObject var viewModel = ListViewVM()
+    @StateObject var viewModel: ListViewVM
     @FirestoreQuery var items: [ListItem]
     
-    init(userId: String){
+    init(userId: String) {
         self._items = FirestoreQuery(collectionPath: "users/\(userId)/todos")
+        self._viewModel = StateObject(wrappedValue: ListViewVM(userId: userId))
     }
     
     var body: some View {
         NavigationView {
-            VStack{
+            VStack {
                 List(items) { item in
                     ListItemView(item: item)
                         .swipeActions {
-                            Button("Delete"){
+                            Button(action: {
                                 viewModel.delete(id: item.id)
+                            }) {
+                                Label("Delete", systemImage: "trash.fill")
                             }
-                            .background(Color.red)
+                            .tint(.red)
                         }
+                        .padding(.vertical, 5) // Spacing between list items
                 }
-                .listStyle(PlainListStyle())
+                .listStyle(InsetGroupedListStyle()) // More modern list style
+                
+                Spacer()
             }
             .navigationTitle("To Do List")
+            .navigationBarTitleDisplayMode(.inline)
+            .font(.system(size: 20, weight: .medium)) 
             .toolbar {
-                Button {
-                    viewModel.showingNewItemView = true
-                } label: {
-                    Image(systemName: "plus")
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        viewModel.showingNewItemView = true
+                    }) {
+                        Image(systemName: "plus.circle.fill")
+                            .font(.title)
+                            .foregroundColor(.green) // More inviting button color
+                    }
                 }
             }
-            
             .sheet(isPresented: $viewModel.showingNewItemView) {
                 NewItemView(newItemPresented: $viewModel.showingNewItemView)
             }
+            .padding(.horizontal) // Ensures there's padding on both sides of the screen
         }
     }
 }

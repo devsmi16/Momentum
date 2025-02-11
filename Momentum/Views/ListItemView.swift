@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ListItemView: View {
-    @StateObject var viewModel = ProfileViewVM()
+    @StateObject var viewModel = ListItemVM()
     let item: ListItem
     var body: some View {
         HStack{
@@ -20,6 +20,7 @@ struct ListItemView: View {
                 viewModel.toggleIsDone(item: item)
             } label: {
                 Image(systemName: item.isDone ? "checkmark.circle.fill" : "circle")
+                    .foregroundColor(Color.blue)
             }
             
         }

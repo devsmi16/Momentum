@@ -2,31 +2,35 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject var viewModel = MainViewVM()
+    
     var body: some View {
-        if viewModel.isSignedIn,
-            !viewModel.currentUserId.isEmpty {
-            accountView
-        }else{
-            LoginView()
+        Group {
+            if viewModel.isSignedIn,
+                !viewModel.currentUserId.isEmpty {
+                accountView
+                    .transition(.opacity.combined(with: .scale))
+            } else {
+                LoginView()
+                    .transition(.move(edge: .bottom))
+            }
         }
+        .animation(.easeInOut, value: viewModel.isSignedIn)
     }
-    
-    // computed property
-    // some View ifadesi; bu view’in SwiftUI’de herhangi bir View türü olabileceğini ama tek bir view türü döndürmesi gerektiğini ifade eder
-    
+
     @ViewBuilder
     var accountView: some View {
         TabView {
             ListView(userId: viewModel.currentUserId)
                 .tabItem {
-                    Label("Home", systemImage: "house")
+                    Label("Ana Sayfa", systemImage: "house.fill")
                 }
 
             ProfileView()
                 .tabItem {
-                    Label("Profile", systemImage: "person.circle")
+                    Label("Profil", systemImage: "person.crop.circle.fill")
                 }
         }
+        .tint(.blue) 
     }
 }
 

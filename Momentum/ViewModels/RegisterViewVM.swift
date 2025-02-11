@@ -20,7 +20,7 @@ class RegisterViewVM: ObservableObject {
     }
     
     private func insertUserRecord(id: String) {
-        let newUser = Users(id: id,
+        let newUser = User(id: id,
                             name: name,
                             email: email,
                             joined: Date().timeIntervalSince1970)
