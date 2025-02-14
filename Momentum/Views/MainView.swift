@@ -5,16 +5,16 @@ struct MainView: View {
     
     var body: some View {
         Group {
-            if viewModel.isSignedIn,
-                !viewModel.currentUserId.isEmpty {
+            if viewModel.isSignedIn, !viewModel.currentUserId.isEmpty {
                 accountView
-                    .transition(.opacity.combined(with: .scale))
+                    .transition(.scale(scale: 0.9).combined(with: .opacity))
+                    .animation(.spring(response: 0.5, dampingFraction: 0.7, blendDuration: 0.3), value: viewModel.isSignedIn)
             } else {
                 LoginView()
                     .transition(.move(edge: .bottom))
+                    .animation(.spring(response: 0.6, dampingFraction: 0.8, blendDuration: 0.3), value: viewModel.isSignedIn)
             }
         }
-        .animation(.easeInOut, value: viewModel.isSignedIn)
     }
 
     @ViewBuilder
