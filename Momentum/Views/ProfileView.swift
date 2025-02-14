@@ -38,6 +38,7 @@ struct ProfileView: View {
                     .bold()
                 Text(user.name)
             }
+            
             .padding()
             //--
             HStack{
@@ -47,12 +48,6 @@ struct ProfileView: View {
             }
             .padding()
             
-            HStack{
-                Text("Member since: ")
-                    .bold()
-                Text("\(Date(timeIntervalSince1970: user.joined).formatted(date: .long, time: .shortened))")
-            }
-            .padding()
         }
         .padding()
         //--
