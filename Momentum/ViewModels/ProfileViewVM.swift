@@ -25,7 +25,7 @@ class ProfileViewVM: ObservableObject {
                 self?.user = User(id: data["id"] as? String ?? "",
                                   name: data["name"] as? String ?? "",
                                   email: data["email"] as? String ?? "",
-                                  joined: data["date"] as? TimeInterval ?? 0)
+                                  joined: (data["date"] as? Timestamp)?.dateValue().timeIntervalSince1970 ?? 0)
             }
         }
     }

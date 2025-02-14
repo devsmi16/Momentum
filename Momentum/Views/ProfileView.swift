@@ -50,18 +50,18 @@ struct ProfileView: View {
             HStack{
                 Text("Member since: ")
                     .bold()
-                Text("\(Date(timeIntervalSince1970: user.joined).formatted(date: .abbreviated, time: .shortened))")
+                Text("\(Date(timeIntervalSince1970: user.joined).formatted(date: .long, time: .shortened))")
             }
             .padding()
         }
         .padding()
         //--
+        Spacer(minLength: 100)
         Button("Log Out") {
             viewModel.logOut()
         }
         .tint(.red)
         .padding()
-        Spacer()
     }
     
 }
