@@ -5,7 +5,7 @@ struct RegisterView: View {
     var body: some View {
         VStack {
             HeaderView(title: "Register",
-                       subtitle: "Start organizing your tasks",
+                       subtitle: "Stay on track, achieve more",
                        angle: -15,
                        backgroundColor: .green)
                 .frame(height: 250)

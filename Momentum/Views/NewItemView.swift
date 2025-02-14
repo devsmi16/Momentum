@@ -7,7 +7,7 @@ struct NewItemView: View {
     
     var body: some View {
         VStack {
-            // Title section
+            
             Text("New Task")
                 .font(.largeTitle)
                 .bold()

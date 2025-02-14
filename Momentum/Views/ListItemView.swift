@@ -4,9 +4,9 @@ struct ListItemView: View {
     @StateObject var viewModel = ListItemVM()
     let item: ListItem
     var body: some View {
-        HStack{
+        HStack {
             
-            VStack(alignment: .leading){
+            VStack(alignment: .leading) {
                 Text(item.title)
                     .font(.body)
                 
@@ -14,16 +14,20 @@ struct ListItemView: View {
                     .font(.headline)
                     .foregroundColor(.teal)
             }
+            
             Spacer()
             
-            Button{
+            Button {
                 viewModel.toggleIsDone(item: item)
             } label: {
                 Image(systemName: item.isDone ? "checkmark.circle.fill" : "circle")
-                    .foregroundColor(Color.blue)
+                    .font(.system(size: 20))
+                    .foregroundColor(item.isDone ? .green : .blue)
             }
             
         }
+        .padding(.vertical, 10)
+        .padding(.horizontal)
     }
 }
 

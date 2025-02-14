@@ -7,7 +7,7 @@ struct LoginView: View {
         NavigationView {
             VStack {
                 HeaderView(title: "To Do List",
-                           subtitle: "Get Things Done",
+                           subtitle: "Excel in every task",
                            angle: 15,
                            backgroundColor: .blue)
                     .frame(height: 250)

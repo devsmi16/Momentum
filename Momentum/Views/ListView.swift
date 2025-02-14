@@ -23,30 +23,39 @@ struct ListView: View {
                             }
                             .tint(.red)
                         }
-                        .padding(.vertical, 5)
+                        .padding(.vertical, 8)
                 }
                 .listStyle(InsetGroupedListStyle())
-                
+                .background(Color(UIColor.systemBackground))
+                .cornerRadius(10)
+                .shadow(radius: 5)
                 Spacer()
             }
-            .navigationTitle("To Do List")
+            .navigationTitle("Conquer Your Day")
             .navigationBarTitleDisplayMode(.inline)
-            .font(.system(size: 20, weight: .medium))
+            .font(.system(size: 10, weight: .medium))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        viewModel.showingNewItemView = true
+                        withAnimation {
+                            viewModel.showingNewItemView = true
+                        }
                     }) {
                         Image(systemName: "plus.circle.fill")
-                            .font(.title)
-                            .foregroundColor(.green) 
+                            .font(.system(size: 20))
+                            .foregroundColor(.mint)
+                            .padding(0)
+                            .shadow(radius: 10, x: 5, y: 5)
+                            .scaleEffect(viewModel.showingNewItemView ? 2.6 : 1.2)
+                            .animation(.easeInOut(duration: 0.1), value: viewModel.showingNewItemView)
                     }
                 }
             }
             .sheet(isPresented: $viewModel.showingNewItemView) {
                 NewItemView(newItemPresented: $viewModel.showingNewItemView)
             }
-            .padding(.horizontal) // Ensures there's padding on both sides of the screen
+            .padding(.horizontal, 16)
+            .background(Color(UIColor.secondarySystemBackground))
         }
     }
 }
