@@ -18,12 +18,24 @@ struct NewItemView: View {
             
             Form {
                 Section {
-                    
-                    TextField("Title", text: $viewModel.title)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .autocapitalization(.none) // Harf büyüklüğü düzeltmesi yapılmasın
-                        .disableAutocorrection(true)
-                        .padding(.vertical, 5)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(viewModel.title.isEmpty ? Color.gray.opacity(0.5) : Color.orange, lineWidth: 2)
+                            .background(Color(UIColor.secondarySystemBackground))
+                            .cornerRadius(10)
+                        
+                        HStack {
+                            Image(systemName: "square.and.pencil")
+                                .foregroundColor(viewModel.title.isEmpty ? .gray : .orange)
+                            
+                            TextField("Add event...", text: $viewModel.title)
+                                .autocapitalization(.none)
+                                .disableAutocorrection(true)
+                                .padding(10)
+                        }
+                        .padding(.horizontal, 10)
+                    }
+                    .frame(height: 50)
                 }
                 
                 Section {

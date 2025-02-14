@@ -11,14 +11,10 @@ class NewItemViewVM: ObservableObject {
     init () {}
     
     func save() {
-        guard canSave else {
-            return
-        }
+        guard canSave else { return }
         
         // get current user id
-        guard let uid = Auth.auth().currentUser?.uid else {
-            return
-        }
+        guard let uid = Auth.auth().currentUser?.uid else { return }
         
         // create model
         let newId = UUID().uuidString
