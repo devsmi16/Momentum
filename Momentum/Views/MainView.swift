@@ -22,7 +22,7 @@ struct MainView: View {
         TabView {
             ListView(userId: viewModel.currentUserId)
                 .tabItem {
-                    Label("Ana Sayfa", systemImage: "house.fill")
+                    Label("Home", systemImage: "house.fill")
                 }
             
             PomodoroView()
@@ -32,7 +32,7 @@ struct MainView: View {
 
             ProfileView()
                 .tabItem {
-                    Label("Profil", systemImage: "person.crop.circle.fill")
+                    Label("Profile", systemImage: "person.crop.circle.fill")
                 }
             
         }
